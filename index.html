@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Sajay's Shopping List - INFO3180 LAB 6
+        </title>
+        <link rel="stylesheet" href="pretty.css" type="text/css" />
+    </head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<script>
+var app = angular.module("myShoppingList", []); 
+app.controller("myCtrl", function($scope) {
+    $scope.products = ["Banana", "Apple", "Pineaples", "Blue Cake Mix"];
+    
+    //adding items to list
+    $scope.addItem = function () {
+        $scope.errortext = "";
+        if (!$scope.addMe) {
+            return;    
+        }        
+        if ($scope.products.indexOf($scope.addMe) == -1) {
+            $scope.products.push($scope.addMe);
+        }
+        else {
+            $scope.errortext = "The item is already in your shopping list.";
+        }
+    }
+    
+    $scope.removeItem = function (x) {
+        $scope.errortext = "";    
+        $scope.products.splice(x, 1);
+    }
+});
+</script>
+
+<div class = "topDiv" ng-app="myShoppingList" ng-controller="myCtrl">
+    
+    <p class = h2cl>Sajay's Shopping List</p>
+    
+  <ol >
+    <li class = 'item' ng-repeat="item in products">{{ item }} <span ng-click="removeItem($index)">×</span></li>
+  </ol>
+  
+  <input ng-model="addMe">
+  
+  <button ng-click="addItem()">Add</button>
+  
+  <p>{{errortext}}</p>
+  
+</div>
+
+<p style="color: black; font-family: serif" >Kinda unwise to want to add the same item twice</p>
+
+</body>
+</html>

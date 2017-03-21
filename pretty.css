@@ -1,0 +1,33 @@
+.topDiv{
+    width: 40%; 
+    height: 100%; 
+    border: solid; 
+    border-color:silver; 
+    background-color: #CACAFF;
+    
+}
+    
+.h2cl{
+    font-size: 2em;
+    color: #FF552D;
+    font-family: 'Comic Sans MS', sans-serif;
+}
+
+
+
+.item {
+    color: #000009;
+    font-family: cursive;
+    font-size: 1.5em;
+}
+button {
+    background-color: #E8C80E;
+    color: #2A13FF;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+input {
+    height: 25px;
+    
+}
